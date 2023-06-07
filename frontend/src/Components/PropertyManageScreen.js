@@ -4,10 +4,14 @@ import TopNavigation from './TopNavigation';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router';
 
 function PropertyManageScreen() {
 
     const[properties, setProperties] = useState([]);
+    const[search, setSearch] = useState('');
+    const navigate = useNavigate();
+
 
     useEffect(  () => {
         axios.get('http://localhost:3000/admin/getAllProperty', {
@@ -23,6 +27,43 @@ function PropertyManageScreen() {
 
         
     }, [])
+    
+      const handleDeleteProperty = async (Title) => {
+        try {
+          await axios.delete(
+            'http://localhost:3000/admin/deleteProperty',
+            {
+              data: { Title },
+              headers: {
+                token: localStorage.getItem('token')
+              }
+            }
+          );
+    
+          setProperties((prevClients) =>
+            prevClients.filter((client) => {
+              if (client.Title !== Title) {
+                return client;
+              }
+            })
+          );
+        } catch (error) {
+          console.error('Error deleting client:', error);
+        }
+      };  
+    
+      const handleSearch = async () => {
+        const response = await axios.post('http://localhost:3000/admin/getByNameProperty', {Title: search} ,{
+            headers: {
+              token: localStorage.getItem('token')
+            }
+          });
+          console.log(response)
+    
+          if(response.data.Success)
+          setProperties(response.data.property)
+    
+      }
 
     console.log(properties)
 
@@ -32,8 +73,8 @@ function PropertyManageScreen() {
                 <div className='dblftNav'><LeftNavigation/></div>
                 <div className='dbtopNav'>
                     <TopNavigation/>
-                    <input placeholder='search property by name'/>
-                    <Button className='btn-success'>Search</Button>
+                    <input placeholder='search property by name' value={search} onChange={(e) => {setSearch(e.target.value)}} />
+                    <Button className='btn-success' onClick={handleSearch}>Search</Button>
                     <Table striped bordered hover>
                         <thead>
                             <tr>
@@ -63,8 +104,8 @@ function PropertyManageScreen() {
                                         <td>{element.city}</td>
                                         <td>{element.Title}</td>
                                         <td>{element.Area}</td>
-                                        <td><Button className='btn-success'>Update</Button></td>
-                                        <td><Button className='btn-danger'>Delete</Button></td>
+                                        <td><Button className='btn-success' onClick={() => {navigate('/UpdateProperty', {state:{Title:element.Title}})}}>Update</Button></td>
+                                        <td><Button className='btn-danger' onClick={() => {handleDeleteProperty(element.Title)}}>Delete</Button></td>
                                     </tr>)
                                 })
                             }

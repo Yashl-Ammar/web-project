@@ -28,7 +28,7 @@ let getByNameProjectUser = (req, res) => {
             res.status(200).json({ Success: true, Message: "Succefully got project users", ProjectUser:pruser });
         }
         else{
-            res.status(400).json({ Success: false, Message: "No such project users exist in the db" });
+            res.status(200).json({ Success: false, Message: "No such project users exist in the db" });
         }
         
     })

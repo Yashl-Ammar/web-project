@@ -8,6 +8,8 @@ import SchemeManageScreen from './Components/HousingSchemeScreen';
 import ProjectUsersManageScreen from './Components/ProjectUserManageScreen';
 import UpdateClient from './Components/UpdateClient';
 import UpdateAgentUser from './Components/UpdateAgent';
+import UpdateProperty from './Components/UpdateProperty';
+import UpdateHousingScheme from './Components/UpdateScheme';
 
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
         <Route path='/SchemeManageScreen' element={<SchemeManageScreen/>} />
         <Route path='/UpdateClient' element={<UpdateClient/>} />
         <Route path='/UpdateAgentUser' element={<UpdateAgentUser/>} />
+        <Route path='/UpdateProperty' element={<UpdateProperty/>} />
+        <Route path='/UpdateHousingScheme' element={<UpdateHousingScheme/>} />
 
       </Routes>
     </BrowserRouter>

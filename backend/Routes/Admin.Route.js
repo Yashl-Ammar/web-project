@@ -8,7 +8,7 @@ const { verifyuserloggedIn } = require("../Middleware/authentication");
 
 const router = require("express").Router();
 
-router.post("/login", login);
+ router.post("/login", login);
 router.get("/getAllProjectUser", verifyuserloggedIn, getAllProjectUser);
 router.get("/getAllAgentUser", verifyuserloggedIn, getAllAgentUser);
 router.get("/getAllClientUser", verifyuserloggedIn, getAllClientUser);

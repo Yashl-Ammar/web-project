@@ -7,7 +7,7 @@ let getAllHousingScheme = (req, res) => {
             res.status(200).json({ Success: true, Message: "Succefully got project products", ProjectProducts:projectProducts });
         }
         else{
-            res.status(400).json({ Success: false, Message: "No such project products exist in db" });
+            res.status(200).json({ Success: false, Message: "No such project products exist in db" });
         }
         
     })
@@ -28,7 +28,7 @@ let getByNameHousingScheme = (req, res) => {
             res.status(200).json({ Success: true, Message: "Succefully got project users", product:product });
         }
         else{
-            res.status(400).json({ Success: false, Message: "No such product exist in the db" });
+            res.status(200).json({ Success: false, Message: "No such product exist in the db" });
         }
         
     })

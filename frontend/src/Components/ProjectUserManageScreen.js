@@ -18,7 +18,7 @@ function ProjectUsersManageScreen() {
         .then(res => {
             console.log(res);
 
-            if(res.data.success){
+            if(res.data.Success){
                 setProjectUsers(res.data.ProjectProducts);
             }
             
