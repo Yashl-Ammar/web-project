@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 function UpdateAgentUser() {
   const [username, setUsername] = useState('');
@@ -14,15 +14,18 @@ function UpdateAgentUser() {
   const [message, setMessage] = useState('');
 
   const location = useLocation();
-
-    console.log(location.state.name)
+  const navigate = useNavigate();
 
   useEffect( () => {
     fetchData();
 }, [])
 
     const fetchData = async () => {
-        const response = await axios.post('http://localhost:3000/admin/getByNameAgentUser', {fname: location.state.name} ,{
+        if(location.state === null){
+            navigate('/login');
+        }
+        else{
+            const response = await axios.post('http://localhost:3000/admin/getByNameAgentUser', {fname: location.state.name} ,{
             headers: {
               token: localStorage.getItem('token')
             }
@@ -35,6 +38,7 @@ function UpdateAgentUser() {
           setEmail(response.data.agent[0].email)
           setPassword(response.data.agent[0].password)
           setContactNo(response.data.agent[0].contactNo)
+        }
     }
 
   const handleUpdate = () => {

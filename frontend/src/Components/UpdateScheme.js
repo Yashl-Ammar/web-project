@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 function UpdateHousingScheme() {
   const [title, setTitle] = useState('');
@@ -14,12 +14,19 @@ function UpdateHousingScheme() {
   const [message, setMessage] = useState('');
 
     const location = useLocation();
+    const navigate = useNavigate();
 
   useEffect( () => {
     fetchData();
 }, [])
 
     const fetchData = async () => {
+        if(location.state === null){
+            navigate('/login');
+        }
+        else{
+
+        
         const response = await axios.post('http://localhost:3000/admin/getByNameHousingScheme', {Title: location.state.Title} ,{
             headers: {
               token: localStorage.getItem('token')
@@ -33,6 +40,7 @@ function UpdateHousingScheme() {
           setCity(response.data.product[0].City)
           setState(response.data.product[0].State)
           setCountry(response.data.product[0].Country)
+        }
     }
 
   const handleUpdate = () => {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 function UpdateProjectUser() {
   const [email, setEmail] = useState('');
@@ -11,12 +11,18 @@ function UpdateProjectUser() {
   const [accountNumber, setAccountNumber] = useState('');
   const [message, setMessage] = useState('');
     const location = useLocation();
-
+    const navigate = useNavigate();
     useEffect( () => {
         fetchData();
     }, [])
     
         const fetchData = async () => {
+            if(location.state === null){
+                navigate('/login');
+            }
+            else{
+
+            
             const response = await axios.post('http://localhost:3000/admin/getByNameProjectUser', {Name: location.state.Name} ,{
                 headers: {
                   token: localStorage.getItem('token')
@@ -29,6 +35,7 @@ function UpdateProjectUser() {
               setPassword(response.data.ProjectUser[0].Password)
               setAccountNumber(response.data.ProjectUser[0].AccountNumber
                 )
+              }
         }
 
   const handleUpdate = () => {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 function UpdateClient() {
   const [email, setEmail] = useState('');
@@ -12,26 +12,30 @@ function UpdateClient() {
   const [address, setAddress] = useState('');
   const [message, setMessage] = useState('');
   const location =  useLocation();
-
-    console.log(location.state.name);
+  const navigate = useNavigate();
 
   useEffect( () => {
     fetchData();
 }, [])
 
     const fetchData = async () => {
-        const response = await axios.post('http://localhost:3000/admin/getByNameClientUser', {name: location.state.name} ,{
-            headers: {
-              token: localStorage.getItem('token')
-            }
-          });
-          console.log(response)
-        
-          setEmail(response.data.client[0].email)
-          setName(response.data.client[0].name)
-          setContactNo(response.data.client[0].contactNo)
-          setPassword(response.data.client[0].password)
-          setAddress(response.data.client[0].address)
+        if(location.state === null){
+            navigate('/login');
+        }
+        else{
+            const response = await axios.post('http://localhost:3000/admin/getByNameClientUser', {name: location.state.name} ,{
+                headers: {
+                token: localStorage.getItem('token')
+                }
+            });
+            console.log(response)
+            
+            setEmail(response.data.client[0].email)
+            setName(response.data.client[0].name)
+            setContactNo(response.data.client[0].contactNo)
+            setPassword(response.data.client[0].password)
+            setAddress(response.data.client[0].address)
+        }
     }
 
   const handleUpdate = () => {

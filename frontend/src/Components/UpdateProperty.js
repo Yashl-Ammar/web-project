@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 function UpdateProperty() {
   const [title, setTitle] = useState('');
@@ -19,12 +19,19 @@ function UpdateProperty() {
   const [landline, setLandline] = useState('');
   const [message, setMessage] = useState('');
   const navlocation = useLocation();
+  const navigate = useNavigate();
 
   useEffect( () => {
     fetchData();
 }, [])
 
     const fetchData = async () => {
+        if(navlocation.state === null){
+            navigate('/login');
+        }
+        else{
+
+        
         const response = await axios.post('http://localhost:3000/admin/getByNameProperty', {Title: navlocation.state.Title} ,{
             headers: {
               token: localStorage.getItem('token')
@@ -44,6 +51,7 @@ function UpdateProperty() {
           setEmail(response.data.property[0].email)
           setMobileNo(response.data.property[0].mobileNo)
           setLandline(response.data.property[0].landline)
+        }
     }
 
   const handleUpdate = () => {

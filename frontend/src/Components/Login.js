@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
+
+    useEffect(() => {
+        if(localStorage.getItem('token') !== null){
+            navigate('/ClientManageScreen')
+        }
+    }, [])
 
   const handleLogin = async () => {
     try {
@@ -16,10 +24,9 @@ const Login = () => {
         const token = data.token;
         localStorage.setItem('token', token);
 
-        alert("success");
+       
   
-        // Redirect or navigate to another page
-        // ...
+        navigate('/ClientManageScreen');
       } else {
         // Login failed, display error message
         setErrorMessage(data.Message);
