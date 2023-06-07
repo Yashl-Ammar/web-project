@@ -10,6 +10,7 @@ import UpdateClient from './Components/UpdateClient';
 import UpdateAgentUser from './Components/UpdateAgent';
 import UpdateProperty from './Components/UpdateProperty';
 import UpdateHousingScheme from './Components/UpdateScheme';
+import UpdateProjectUser from './Components/UpdateProjectUser';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path='/UpdateAgentUser' element={<UpdateAgentUser/>} />
         <Route path='/UpdateProperty' element={<UpdateProperty/>} />
         <Route path='/UpdateHousingScheme' element={<UpdateHousingScheme/>} />
+        <Route path='/UpdateProjectUser' element={<UpdateProjectUser/>} />
 
       </Routes>
     </BrowserRouter>

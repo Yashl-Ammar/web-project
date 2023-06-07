@@ -87,7 +87,7 @@ let deleteProjectUser = (req, res) => {
     let {Email} = req.body;
 
     let filter = {Email: Email};
-
+    console.log(Email);
     ProjectUser.deleteOne(filter)
     .then((projectuser) => {
         if(projectuser.deletedCount > 0){
