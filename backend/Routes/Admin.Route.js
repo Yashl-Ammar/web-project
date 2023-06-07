@@ -1,5 +1,5 @@
 const { getAllAgentUser, getByNameAgentUser, deleteAgentUser, updateAgentUser, banAgentUser } = require("../Controller/Admin.Agent.Controller");
-const { getAllClientUser, getByNameClientUser, deleteClientUser, updateClientUser, banClientUser } = require("../Controller/Admin.Client.Controller");
+const { getAllClientUser, getByNameClientUser, deleteClientUser, updateClientUser, banClientUser, getByEmailClientUser } = require("../Controller/Admin.Client.Controller");
 const { login } = require("../Controller/Admin.Controller");
 const { getAllHousingScheme, getByNameHousingScheme, deleteHousingScheme, updateHousingScheme } = require("../Controller/Admin.HousingScheme.Controller");
 const { getAllProjectUser, getByNameProjectUser, deleteProjectUser, updateProjectUser, banProjectUser } = require("../Controller/Admin.ProjectUser.Controller");
@@ -20,6 +20,9 @@ router.post("/getByNameClientUser", verifyuserloggedIn, getByNameClientUser);
 router.post("/getByNameHousingScheme", verifyuserloggedIn, getByNameHousingScheme);
 router.post("/getByNameProjectUser", verifyuserloggedIn, getByNameProjectUser);
 router.post("/getByNameProperty", verifyuserloggedIn, getByNameProperty);
+
+
+router.post("/getByEmailClientUser", verifyuserloggedIn, getByEmailClientUser);
 
 router.delete("/deleteAgentUser", verifyuserloggedIn, deleteAgentUser);
 router.delete("/deleteClientUser", verifyuserloggedIn, deleteClientUser);

@@ -36,6 +36,26 @@ let getByNameClientUser = (req, res) => {
     })
 }
 
+let getByEmailClientUser = (req, res) => {
+
+    let {email} = req.body;
+
+    let filter = {email: email};
+
+    ClientModel.find(filter)
+    .then(client => {
+        if(client.length !== 0){
+            res.status(200).json({ Success: true, Message: "Succefully got client", client:client });
+        }
+        else{
+            res.status(400).json({ Success: false, Message: "No clients with this name in db" });
+        }
+    })
+    .catch(err => {
+        res.status(400).json({ Success: false, Message: "Could not get client",err:err });
+    })
+}
+
 
 let updateClientUser = (req, res) => {
 
@@ -112,5 +132,6 @@ module.exports = {
     getByNameClientUser,
     updateClientUser,
     banClientUser,
-    deleteClientUser
+    deleteClientUser,
+    getByEmailClientUser
 }
