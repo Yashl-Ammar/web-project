@@ -17,6 +17,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='/' element={<Login/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/AgentManageScreen' element={<AgentManageScreen/>} />
         <Route path='/PropertyManageScreen' element={<PropertyManageScreen/>} />
