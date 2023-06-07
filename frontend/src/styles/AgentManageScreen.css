@@ -1,0 +1,51 @@
+/* AgentManageScreen.css */
+
+/* Search bar styles */
+.search-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-bar input {
+  margin-bottom: 10px;
+}
+
+/* Table styles */
+.dbtopNav table {
+  width: 100%;
+  overflow-x: auto; /* Add horizontal scrolling */
+}
+
+.dbtopNav th,
+.dbtopNav td {
+  padding: 8px;
+}
+
+/* Adjust table layout for smaller screens */
+@media (max-width: 768px) {
+  .dbtopNav table {
+    font-size: 14px;
+  }
+
+  .dbtopNav th,
+  .dbtopNav td {
+    white-space: nowrap; /* Prevent line breaks in table cells */
+    text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+    overflow: hidden; /* Hide overflowed content */
+  }
+
+  .dbtopNav td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .dbtopNav .btn-success,
+  .dbtopNav .btn-primary,
+  .dbtopNav .btn-danger {
+    width: 100%;
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}

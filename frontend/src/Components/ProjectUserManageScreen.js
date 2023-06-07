@@ -126,7 +126,7 @@ function ProjectUsersManageScreen() {
                             {
                                 projectUsers.map((element, i) => {
                                     return(<tr key={element.id}>
-                                        <td>{i}</td>
+                                        <td>{i+1}</td>
                                         <td>{element.Email}</td>
                                         <td>{element.Name}</td>
                                         <td>{element.AccountNumber}</td>

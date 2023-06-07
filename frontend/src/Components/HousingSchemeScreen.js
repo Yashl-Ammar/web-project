@@ -93,7 +93,7 @@ function SchemeManageScreen() {
                             {
                                 schemes.map((element, i) => {
                                     return(<tr key={element.id}>
-                                        <td>{i}</td>
+                                        <td>{i+1}</td>
                                         <td>{element.Email}</td>
                                         <td>{element.Title}</td>
                                         <td>{element.City}</td>

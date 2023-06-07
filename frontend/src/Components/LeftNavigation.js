@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Nav from 'react-bootstrap/Nav';
 
 
 function LeftNavigation() {
@@ -27,36 +28,49 @@ function LeftNavigation() {
             </svg>
             <h1>Houzz</h1>
             </div>
-            <div className='lftNav-ul-div'>
-                <ul className='lftNav-ul'>
-                    <div className='nav-link-div'>
-                        <li className='lftNav-link'>
-                            <Link to='/AgentManageScreen' className='nav-link'>Agent Management</Link>
-                        </li>
-                    </div>
-                    <div className='nav-link-div'>
-                        <li className='lftNav-link'>
-                            <Link to='/PropertyManageScreen' className='nav-link'>Property Management</Link>
-                        </li>
-                    </div>
-                    <div className='nav-link-div'>
-                        <li className='lftNav-link'>
-                            <Link to='/ClientManageScreen' className='nav-link'>Client Management</Link>
-                        </li>
-                    </div>
-                    <div className='nav-link-div'>
-                        <li className='lftNav-link'>
-                            <Link to='/SchemeManageScreen' className='nav-link'>Housing Scheme Management</Link>
-                        </li>
-                    </div>
-                    <div className='nav-link-div'>
-                        <li className='lftNav-link'>
-                            <Link to='/ProjectUsersManageScreen' className='nav-link'>Project Agent Management</Link>
-                        </li>
-                    </div>
-                    
-                </ul>
-            </div>
+            <div className="lftNav-ul-div">
+      <Nav className="flex-column lftNav-ul">
+        <div className="nav-link-div">
+          <Nav.Item>
+            <Nav.Link as={Link} to="/AgentManageScreen" className="nav-link">
+              Agent Management
+            </Nav.Link>
+          </Nav.Item>
+        </div>
+        <div className="nav-link-div">
+          <Nav.Item>
+            <Nav.Link as={Link} to="/PropertyManageScreen" className="nav-link">
+              Property Management
+            </Nav.Link>
+          </Nav.Item>
+        </div>
+        <div className="nav-link-div">
+          <Nav.Item>
+            <Nav.Link as={Link} to="/ClientManageScreen" className="nav-link">
+              Client Management
+            </Nav.Link>
+          </Nav.Item>
+        </div>
+        <div className="nav-link-div">
+          <Nav.Item>
+            <Nav.Link as={Link} to="/SchemeManageScreen" className="nav-link">
+              Housing Scheme Management
+            </Nav.Link>
+          </Nav.Item>
+        </div>
+        <div className="nav-link-div">
+          <Nav.Item>
+            <Nav.Link
+              as={Link}
+              to="/ProjectUsersManageScreen"
+              className="nav-link"
+            >
+              Project Agent Management
+            </Nav.Link>
+          </Nav.Item>
+        </div>
+      </Nav>
+    </div>
             <div></div>
         </div>
         

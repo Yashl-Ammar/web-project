@@ -14,17 +14,24 @@ function AgentManageScreen() {
     const navigate = useNavigate();
 
     useEffect(  () => {
-        axios.get('http://localhost:3000/admin/getAllAgentUser', {
-            headers:{
-                token: localStorage.getItem('token')
-            }
-        })
-        .then(res => {
-            console.log(res);
-            if(res.data.Success)
-                setAgents(res.data.agents);
-        })
+        if(localStorage.getItem('token') === null){
+            navigate('/login');
+        }
+        else{
+            axios.get('http://localhost:3000/admin/getAllAgentUser', {
+                headers:{
+                    token: localStorage.getItem('token')
+                }
+            })
+            .then(res => {
+                console.log(res);
+                if(res.data.Success)
+                    setAgents(res.data.agents);
+            })
 
+        }   
+
+        
         
     }, [])
 
