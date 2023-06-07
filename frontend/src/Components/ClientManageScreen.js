@@ -93,7 +93,8 @@ function ClientManageScreen() {
       });
       console.log(response)
 
-      setClients(response.data.client)
+      if(response.data.Success)
+        setClients(response.data.client)
 
   }
 

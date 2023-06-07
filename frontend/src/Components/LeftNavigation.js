@@ -31,27 +31,27 @@ function LeftNavigation() {
                 <ul className='lftNav-ul'>
                     <div className='nav-link-div'>
                         <li className='lftNav-link'>
-                            <Link className='nav-link'>Property</Link>
+                            <Link to='/AgentManageScreen' className='nav-link'>Agent Management</Link>
                         </li>
                     </div>
                     <div className='nav-link-div'>
                         <li className='lftNav-link'>
-                            <Link className='nav-link'>Property</Link>
+                            <Link to='/PropertyManageScreen' className='nav-link'>Property Management</Link>
                         </li>
                     </div>
                     <div className='nav-link-div'>
                         <li className='lftNav-link'>
-                            <Link className='nav-link'>Property</Link>
+                            <Link to='/ClientManageScreen' className='nav-link'>Client Management</Link>
                         </li>
                     </div>
                     <div className='nav-link-div'>
                         <li className='lftNav-link'>
-                            <Link className='nav-link'>Property</Link>
+                            <Link to='/SchemeManageScreen' className='nav-link'>Housing Scheme Management</Link>
                         </li>
                     </div>
                     <div className='nav-link-div'>
                         <li className='lftNav-link'>
-                            <Link className='nav-link'>Property</Link>
+                            <Link to='/ProjectUsersManageScreen' className='nav-link'>Project Agent Management</Link>
                         </li>
                     </div>
                     

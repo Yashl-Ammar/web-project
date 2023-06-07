@@ -7,6 +7,7 @@ import AgentManageScreen from './Components/AgentManageScreen';
 import SchemeManageScreen from './Components/HousingSchemeScreen';
 import ProjectUsersManageScreen from './Components/ProjectUserManageScreen';
 import UpdateClient from './Components/UpdateClient';
+import UpdateAgentUser from './Components/UpdateAgent';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/ClientManageScreen' element={<ClientManageScreen/>} />
         <Route path='/SchemeManageScreen' element={<SchemeManageScreen/>} />
         <Route path='/UpdateClient' element={<UpdateClient/>} />
+        <Route path='/UpdateAgentUser' element={<UpdateAgentUser/>} />
 
       </Routes>
     </BrowserRouter>

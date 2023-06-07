@@ -7,7 +7,7 @@ let getAllAgentUser = (req, res) => {
             res.status(200).json({ Success: true, Message: "Succefully got agents", agents:agents });
         }
         else{
-            res.status(400).json({ Success: false, Message: "No agents exist in db" });
+            res.status(200).json({ Success: false, Message: "No agents exist in db" });
         }
     })
     .catch(err => {
@@ -27,7 +27,7 @@ let getByNameAgentUser = (req, res) => {
             res.status(200).json({ Success: true, Message: "Succefully got agent", agent:agent });
         }
         else{
-            res.status(400).json({ Success: false, Message: "No agent exist in db" });
+            res.status(200).json({ Success: false, Message: "No agent exist in db" });
         }
     })
     .catch(err => {
@@ -88,6 +88,8 @@ let banAgentUser = (req, res) => {
 let deleteAgentUser = (req, res) => {
 
     let {username} = req.body;
+    
+    console.log(username)
 
     let filter = {username: username};
 

@@ -46,7 +46,7 @@ function PropertyManageScreen() {
                                 <th>city</th>
                                 <th>Title</th>
                                 <th>Area</th>
-                                <th>View</th>
+                                <th>Update</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
@@ -54,7 +54,7 @@ function PropertyManageScreen() {
                             {
                                 properties.map((element, i) => {
                                     return(<tr key={element.id}>
-                                        <td>{i}</td>
+                                        <td>{i+1}</td>
                                         <td>{element.email}</td>
                                         <td>{element.description}</td>
                                         <td>{element.landline}</td>
@@ -63,7 +63,7 @@ function PropertyManageScreen() {
                                         <td>{element.city}</td>
                                         <td>{element.Title}</td>
                                         <td>{element.Area}</td>
-                                        <td><Button className='btn-success'>View</Button></td>
+                                        <td><Button className='btn-success'>Update</Button></td>
                                         <td><Button className='btn-danger'>Delete</Button></td>
                                     </tr>)
                                 })

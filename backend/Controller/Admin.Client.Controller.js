@@ -7,7 +7,7 @@ let getAllClientUser = (req, res) => {
             res.status(200).json({ Success: true, Message: "Succefully got client", clients:clients });
         }
         else{
-            res.status(400).json({ Success: false, Message: "No clients exist in db" });
+            res.status(200).json({ Success: false, Message: "No clients exist in db" });
         }
     })
     .catch(err => {
@@ -28,7 +28,7 @@ let getByNameClientUser = (req, res) => {
             res.status(200).json({ Success: true, Message: "Succefully got client", client:client });
         }
         else{
-            res.status(400).json({ Success: false, Message: "No clients with this name in db" });
+            res.status(200).json({ Success: false, Message: "No clients with this name in db" });
         }
     })
     .catch(err => {
