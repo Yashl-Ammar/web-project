@@ -17,7 +17,7 @@ let login = (req, res) => {
               _id: user._id,
             },
             process.env.SECRET_KEY,
-            { expiresIn: "3h" }
+            { expiresIn: "24h" }
           );
   
           res.status(200).json({

@@ -7,7 +7,7 @@ let getAllProperty = (req, res) => {
             res.status(200).json({ Success: true, Message: "Succefully got properties", Properties:properties });
         }
         else{
-            res.status(400).json({ Success: false, Message: "No properties in the db"});
+            res.status(200).json({ Success: false, Message: "No properties in the db"});
         }
         
     })
@@ -29,7 +29,7 @@ let getByNameProperty = (req, res) => {
         }
         else
         {
-            res.status(400).json({ Success: false, Message: "No such property exist in db"});
+            res.status(200).json({ Success: false, Message: "No such property exist in db"});
         }
         
     })

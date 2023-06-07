@@ -7,7 +7,7 @@ let getAllProjectUser = (req, res) => {
             res.status(200).json({ Success: true, Message: "Succefully got project users", ProjectUsers:prusers });
         }
         else{
-            res.status(400).json({ Success: false, Message: "No properties exist in db" });
+            res.status(200).json({ Success: false, Message: "No properties exist in db" });
         }
         
     })

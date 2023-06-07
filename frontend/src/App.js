@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import Login from './Components/Login';
+import ClientManageScreen from './Components/ClientManageScreen';
+import PropertyManageScreen from './Components/PropertyManageScreen';
+import AgentManageScreen from './Components/AgentManageScreen';
+import SchemeManageScreen from './Components/HousingSchemeScreen';
+import ProjectUsersManageScreen from './Components/ProjectUserManageScreen';
+import UpdateClient from './Components/UpdateClient';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/login' element={<Login/>} />
+        <Route path='/AgentManageScreen' element={<AgentManageScreen/>} />
+        <Route path='/PropertyManageScreen' element={<PropertyManageScreen/>} />
+        <Route path='/ProjectUsersManageScreen' element={<ProjectUsersManageScreen/>} />
+        <Route path='/ClientManageScreen' element={<ClientManageScreen/>} />
+        <Route path='/SchemeManageScreen' element={<SchemeManageScreen/>} />
+        <Route path='/UpdateClient' element={<UpdateClient/>} />
+
+      </Routes>
+    </BrowserRouter>
   );
 }
 
